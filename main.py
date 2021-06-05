@@ -11,7 +11,6 @@ app = Flask(__name__)
 
 @app.post('/webhooks')
 def webhooks():
-    with open('webhook.log', 'a') as log:
-        logging.debug(request.get_json())
-        logging.debug(request.headers)
-    return jsonify({})
+    logging.debug(request.get_json())
+    logging.debug(request.headers)
+    return jsonify({'status': 'Push signal received'})
